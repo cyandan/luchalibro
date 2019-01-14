@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <!-- MOVE STYLE TAGS TO CSS FILE AND DELETE THIS COMMENT -->
+        <h1 style="text-align: center">Add New Review to <%= book.title %></h1>
+        
+        <!-- MOVE STYLE TAGS TO CSS FILE AND DELETE THIS COMMENT -->
+        <!-- NEW REVIEW FORM -->
+        <div style="width: 30%; margin: 30px auto;">
+            <form action="/books/<%= book._id %>/reviews" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="review[text]" placeholder="Review Text">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit Review</button>
+                </div>
+            </form>
+            
+            <!-- LINK BACK TO INDEX PAGE -->
+            <a href="/books">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

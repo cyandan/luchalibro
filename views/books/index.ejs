@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+
+<% if(currentUser && currentUser.isAdmin){ %>
+    <h1>Welcome, Admin.</h1>
+<% } %>
+
+<div class="container">
+    <!-- DISPLAY BOOK IMAGES & TITLES -->
+    <div class="row text-center showBookDiv">
+        <% books.forEach(function(book){ %>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="thumbnail">
+                    <img src="<%= book.image %>">
+                    <div class="caption">
+                        <h3><%= book.title %></h3>
+                        <h4><%= book.author %></h4>
+                    </div>
+                    
+                    <!-- SHOW REVIEWS BUTTON -->
+                    <p>
+                        <a href="/books/<%= book._id %>" class="btn btn-primary">See Reviews</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

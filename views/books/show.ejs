@@ -1,0 +1,73 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+        
+        <!-- BOOK INFO SECTION -->
+        <div class="thumbnail">
+            <!-- DISPLAY BOOK IMAGE, AUTHOR, TITLE, DESC, USER, TIME -->
+            <img class="img-responsive" src="<%= book.image %>">
+            <div class="caption">
+                <h1><%= book.title %></h1>
+                <h4>By <%= book.author %></h4>
+                <p><%= book.description %></p>
+                <p>
+                    <em>
+                        Submitted by: 
+                        <%= book.user.username %>, 
+                        <%= moment(book.submitDate).fromNow() %>
+                    </em>
+                </p>
+                
+                <!-- LOGIN & BOOK OWNERSHIP CHECK -->
+                <% if(currentUser && book.user.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                    <!-- EDIT BOOK BUTTON -->
+                    <a class="btn btn-xs btn-primary" href="/books/<%= book._id %>/edit">Edit Book</a>
+                    
+                    <!-- DELETE BOOK BUTTON -->
+                    <form id="deleteButtons" action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-xs btn-warning">Delete Book</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+        
+        <!-- REVIEWS SECTION -->
+        <div class="well">
+            <!-- NEW REVIEW BUTTON -->
+            <div class="text-right">
+                <a class="btn btn-primary" href="/books/<%= book._id %>/reviews/new">Add Your Review</a>
+            </div>
+            
+            <hr>
+            
+            <!-- DISPLAY REVIEWS -->
+            <% book.reviews.forEach(function(review){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= review.user.username %> says:</strong>
+                        <span class="pull-right"><%= moment(review.submitDate).fromNow() %></span>
+                        <p><%= review.text %></p>
+                        
+                        <!-- LOGIN & REVIEW OWNERSHIP CHECK -->
+                        <% if(currentUser && review.user.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                            <!-- EDIT REVIEW BUTTON -->
+                            <a class="btn btn-xs btn-primary" 
+                                href="/books/<%= book._id %>/reviews/<%= review._id %>/edit">
+                                Edit Review
+                            </a>
+                            
+                            <!-- DELETE REVIEW BUTTON -->
+                            <form id="deleteButtons" action="/books/<%= book._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-xs btn-warning">Delete Review</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <!-- LINK BACK TO INDEX PAGE -->
+        <a href="/books">Go Back</a>
+</div>
+
+<% include ../partials/footer.ejs %>

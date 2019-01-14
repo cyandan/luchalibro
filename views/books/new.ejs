@@ -1,0 +1,37 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="formHeader">New Book</h1>
+        
+        <!-- NEW BOOK FORM -->
+        <div class="formDiv">
+            <form action="/books" method="POST">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input class="form-control" type="text" id="title" name="title" placeholder="Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author:</label>
+                    <input class="form-control" type="text" id="author" name="author" placeholder="Author" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageurl">Image URL:</label>
+                    <input class="form-control" type="text" id="imageurl" name="image" placeholder="Image URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input class="form-control" type="text" id="description" name="description" placeholder="Description" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            
+            <!-- LINK BACK TO INDEX PAGE -->
+            <a href="/books">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

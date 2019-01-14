@@ -1,0 +1,26 @@
+body{
+    background: lightgray;
+}
+
+.thumbnail{
+    padding: 0;
+    background-color: #e3e7ed;
+}
+
+#deleteButtons{
+    display: inline;
+}
+
+.formHeader{
+    text-align: center;
+}
+
+.formDiv{
+    width: 30%; 
+    margin: 30px auto;
+}
+
+.showBookDiv{
+    display: flex; 
+    flex-wrap: wrap;
+}

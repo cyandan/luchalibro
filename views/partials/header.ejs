@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lucha Libro</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+<!-- MAKE COLLAPSE INTO HAMBURGER MENU AND DELETE THIS COMMENT -->    
+<!-- NAV BAR -->    
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        
+        <!-- NAV BAR HEADER -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/books">
+                <span class="glyphicon glyphicon-book"></span> 
+                Lucha Libro
+            </a>
+        </div>
+        
+        <!-- NAV BAR BUTTONS & LINKS -->
+        <div class="collapse navbar-collapse">
+            
+            <!-- SEARCH BOX -->
+            <form action="/books" method="GET" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="Book Title Search">
+                </div>
+                <button class="btn btn-primary">Go</button>
+            </form>
+            
+            <!-- LOGIN & ACCOUNT CREATION -->
+            <ul class="nav navbar-nav navbar-right">
+                <% if(!currentUser){ %>
+                    <li><a href="/login">Sign In</a></li>
+                    <li><a href="/register">Create Account</a></li>
+                <% }else{ %>
+                    <li><a href="#">Signed in as: <%= currentUser.username %></a></li>
+                    <li><a href="/logout">Sign Out</a></li>
+                <% } %>
+            </ul>
+            
+            <!-- ADD NEW BOOK BUTTON -->
+            <a class="btn btn-primary navbar-btn" href="/books/new">Add New Book</a>
+            
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- ERROR CONNECT-FLASH MESSAGE --> 
+    <% if(errorMessage && errorMessage.length > 0){ %>
+        <div class="alert alert-warning" role="alert">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+    
+    <!-- SUCCESS CONNECT-FLASH MESSAGE --> 
+    <% if(successMessage && successMessage.length > 0){ %>
+        <div class="alert alert-info" role="alert">
+            <%= successMessage %>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,29 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="formHeader">Create New Account</h1>
+        <div class="formDiv">
+            
+            <!-- SIGN UP FORM -->
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="Desired Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="Desired Password" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            
+            <!-- LINK BACK TO INDEX PAGE -->
+            <a href="/books">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs %>

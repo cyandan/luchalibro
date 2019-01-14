@@ -1,0 +1,39 @@
+body{
+  background: url("../images/landingBackground.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1{
+  color: white;
+  text-shadow: 1px 1px 10px black;
+  font-size: 500%;
+  font-weight: bold;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  color: white;
+  text-shadow: 1px 1px 10px black;
+  font-size: 275%;
+  font-weight: bold;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span{
+  padding-right: 10px;
+}
+
+#landingHeaderDiv{
+  position: relative;
+  text-align: center;
+  margin-top: 36vh;
+}
