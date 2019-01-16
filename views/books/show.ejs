@@ -3,9 +3,9 @@
 <div class="container">
         
         <!-- BOOK INFO SECTION -->
-        <div class="thumbnail">
+        <div class="thumbnail bookShow">
             <!-- DISPLAY BOOK IMAGE, AUTHOR, TITLE, DESC, USER, TIME -->
-            <img class="img-responsive" src="<%= book.image %>">
+            <img class="img-responsive imgShow" src="<%= book.image %>">
             <div class="caption">
                 <h1><%= book.title %></h1>
                 <h4>By <%= book.author %></h4>
@@ -34,7 +34,7 @@
         <!-- REVIEWS SECTION -->
         <div class="well">
             <!-- NEW REVIEW BUTTON -->
-            <div class="text-right">
+            <div class="text-left">
                 <a class="btn btn-primary" href="/books/<%= book._id %>/reviews/new">Add Your Review</a>
             </div>
             
@@ -44,9 +44,10 @@
             <% book.reviews.forEach(function(review){ %>
                 <div class="row">
                     <div class="col-md-12">
-                        <strong><%= review.user.username %> says:</strong>
-                        <span class="pull-right"><%= moment(review.submitDate).fromNow() %></span>
+                        <strong>Review by <%= review.user.username %>:</strong>
+                        <span class="pull-right"><em>Submitted <%= moment(review.submitDate).fromNow() %></em></span>
                         <p><%= review.text %></p>
+                        <hr>
                         
                         <!-- LOGIN & REVIEW OWNERSHIP CHECK -->
                         <% if(currentUser && review.user.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
