@@ -11,6 +11,11 @@ body{
     display: inline;
 }
 
+.showBookDiv{
+    display: flex; 
+    flex-wrap: wrap;
+}
+
 .formHeader{
     text-align: center;
 }
@@ -37,10 +42,4 @@ hr{
 
 .clearNavBar{
     height: 70px;
-}
-
-.showBookDiv{
-    display: flex; 
-    flex-wrap: wrap;
-
 }
