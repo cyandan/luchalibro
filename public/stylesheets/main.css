@@ -38,3 +38,9 @@ hr{
 .clearNavBar{
     height: 70px;
 }
+
+.showBookDiv{
+    display: flex; 
+    flex-wrap: wrap;
+
+}
