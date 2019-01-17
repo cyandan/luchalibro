@@ -11,17 +11,26 @@
 <!-- NAV BAR -->    
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-        
         <!-- NAV BAR HEADER -->
         <div class="navbar-header">
+            
+            <!-- HAMBURGER MENU -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#stuffToCollapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <!-- COMPANY LOGO & NAME -->
             <a class="navbar-brand" href="/books">
                 <span class="glyphicon glyphicon-book"></span> 
                 Lucha Libro
             </a>
         </div>
         
-        <!-- NAV BAR BUTTONS & LINKS -->
-        <div class="collapse navbar-collapse">
+        <!-- COLLAPSIBLE NAV BAR BUTTONS & LINKS -->
+        <div class="collapse navbar-collapse" id="stuffToCollapse">
             
             <!-- SEARCH BOX -->
             <form action="/books" method="GET" class="navbar-form navbar-left">
@@ -30,6 +39,9 @@
                 </div>
                 <button class="btn btn-primary">Go</button>
             </form>
+            
+            <!-- ADD NEW BOOK BUTTON -->
+            <a class="btn btn-primary navbar-btn" href="/books/new">Add New Book</a>
             
             <!-- LOGIN & ACCOUNT CREATION -->
             <ul class="nav navbar-nav navbar-right">
@@ -41,14 +53,11 @@
                     <li><a href="/logout">Sign Out</a></li>
                 <% } %>
             </ul>
-            
-            <!-- ADD NEW BOOK BUTTON -->
-            <a class="btn btn-primary navbar-btn" href="/books/new">Add New Book</a>
-            
         </div>
     </div>
 </nav>
 
+<!-- BLANK SPACE TO KEEP TOP OF PAGE BELOW NAVBAR -->
 <div class="clearNavBar"></div>
 
 <div class="container">
